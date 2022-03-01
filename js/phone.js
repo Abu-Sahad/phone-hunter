@@ -57,7 +57,7 @@ const setDetails = (info) => {
         </div>
         <div class="card-body">
             <p class="phone-details"><span class="fw-bolder">Phone Name: </span> ${info.name}</p>
-            <p class="phone-details"><span class="fw-bolder">Release-Date: </span>${info.releaseDate ? info.releaseDate : 'relese date comming soon'}</p>
+            <p class="phone-details"><span class="fw-bolder">Release-Date: </span>${info.releaseDate ? info.releaseDate : 'relese date not found'}</p>
             <h5 class="other-details">Main features:</h5>
             <p class="phone-details"><span class="fw-bolder">Chipset: </span>${info.mainFeatures.chipSet}</p>
             <p class="phone-details"><span class="fw-bolder">display-Size: </span>${info.mainFeatures.displaySize}</p>
@@ -67,12 +67,12 @@ const setDetails = (info) => {
             
             <h4 class="text-info text-center"> Others Information</h4>
             
-            <p class="phone-others"><span class="fw-bolder">WLAN: </span>${info.others?.WLAN ? info.others.WLAN : 'error'}</p>
-            <p class="phone-others"><span class="fw-bolder">Bluetooth: </span>${info.others?.Bluetooth ? info.others.Bluetooth : 'error'}</p>
-            <p class="phone-others"><span class="fw-bolder">GPS: </span>${info.others?.GPS ? info.others.GPS : 'error'}</p>
-            <p class="phone-others"><span class="fw-bolder">NFC: </span>${info.others?.NFC ? info.others.NFC : 'error'}</p>
-            <p class="phone-others"><span class="fw-bolder">Radio: </span>${info.others?.Radio ? info.others.Radio : 'error'}</p>
-            <p class="phone-others"><span class="fw-bolder">USB: </span>${info.others?.USB ? info.others.USB : 'error'}</p>
+            <p class="phone-others"><span class="fw-bolder">WLAN: </span>${info.others?.WLAN ? info.others.WLAN : 'not information found'}</p>
+            <p class="phone-others"><span class="fw-bolder">Bluetooth: </span>${info.others?.Bluetooth ? info.others.Bluetooth : 'not information found'}</p>
+            <p class="phone-others"><span class="fw-bolder">GPS: </span>${info.others?.GPS ? info.others.GPS : 'not information found'}</p>
+            <p class="phone-others"><span class="fw-bolder">NFC: </span>${info.others?.NFC ? info.others.NFC : 'not information found'}</p>
+            <p class="phone-others"><span class="fw-bolder">Radio: </span>${info.others?.Radio ? info.others.Radio : 'not information found'}</p>
+            <p class="phone-others"><span class="fw-bolder">USB: </span>${info.others?.USB ? info.others.USB : 'not information found'}</p>
         </div>
     </div>`;
 
