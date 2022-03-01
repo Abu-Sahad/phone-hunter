@@ -9,10 +9,11 @@ const allPhone = () => {
 }
 const displaySearchResult = (phones) => {
     const Totalphone = document.getElementById('total-phone')
-    phones.forEach(phone => {
+    phones.slice(0, 20).forEach(phone => {
+
         const div = document.createElement('div');
         div.classList.add('col');
-        div.innerHTML = `<div class="card">
+        div.innerHTML = `<div class="card h-100">
         <img src="${phone.image}" class="card-img-top" alt="...">
         <div class="card-body">
                <h2 class="phone-name">${phone.phone_name}</h2>
@@ -33,19 +34,26 @@ const phoneDetails = (id) => {
 }
 
 const setDetails = (info) => {
-    const phoneDetail = document.getElementById('phone-details').innerHTML = `
-    <div>
-    <img class="card-img-top" src="${info.image}" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-            the
-            card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-</div>`;
+    console.log(info)
+    document.getElementById("phone-details").innerHTML = `
+    <div class="card h-100">
+       <div class="details-img-info ">
+           <img class="card-img-top w-50 h-25 mt-3" src="${info.image}" alt="Card image cap">
+        </div>
+        <div class="card-body">
+           <p class="">Release-Date:${info.releaseDate}</p>
+           <h5 class="other-details">Main features:<br>
+              Chipset:${info.mainFeatures.chipSet}<br>
+              display-Size:${info.mainFeatures.displaySize}<br>
+              Memory:${info.mainFeatures.memory}
+            </h5>
+        
+            <button onclick="phoneMoreInfo('')" id="cal-button" class="calculator-button mx-auto mt-3 mb-3">More Info</button>
+        
+        </div>
+    </div>`;
 
 
 
 
-}
+};

@@ -5,11 +5,15 @@
     border-radius: 4px;
     padding: 0 15px;
     cursor: pointer;
-    height: 32px;
+    height: 40px;
     font-size: 14px;
     transition: all 0.2s ease-in-out;
+    width: 150px;
 }
 .calculator-button:hover {
     box-shadow: 1px 1px #cc53ea, 2px 2px #cc53ea, 3px 3px #cc53ea;
     transform: translateX(-3px);
+}
+.details-img-info{
+    text-align: center;
 }
