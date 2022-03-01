@@ -16,19 +16,24 @@
 
 <body>
     <section class="container">
+        <!-- main tittle area -->
         <h2 class="text-center m-5">Mobile Bazar BD</h2>
+        <!-- Mobile search arae -->
         <div class="input-group mb-3 mx-auto w-75">
             <input id="phoneSearch" type="text" class="form-control" placeholder="Enter your phone Search" aria-label="Recipient's 
             username" aria-describedby="basic-addon2">
             <span onclick="allPhone()" class="input-group-text" id="basic-addon2">Search</span>
         </div>
-        <p id="search-area" class="text-denger d-none">Input value Not Found</p>
+        <!-- Error Message arae  -->
+        <h1 id="search-area" class="text-success d-none text-center mt-5">Input Phone Not Found</h1>
+
         <!-- player details -->
         <div>
             <div id="phone-details" class="row row-cols-1 mx-auto mb-3" style="width: 70%;">
             </div>
         </div>
         <main>
+            <!-- Show all phone arae -->
             <div id="total-phone" class="row row-cols-1 row-cols-md-3 g-4">
             </div>
         </main>
