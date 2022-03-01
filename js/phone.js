@@ -1,10 +1,11 @@
 const allPhone = () => {
     const searchField = document.getElementById('phoneSearch');
     const searchText = searchField.value
+    document.getElementById("phone-details").innerHTML = '';
     //clear data
-    searchField.value = '';
+
     if (searchText == '') {
-        //please write someting to display 
+        document.getElementById('search-area').classList.remove('d-none')
     }
     else {
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
@@ -12,6 +13,7 @@ const allPhone = () => {
             .then((res) => res.json())
             .then((data) => displaySearchResult(data.data))
     }
+    searchField.value = '';
 
 
 
@@ -20,9 +22,8 @@ const displaySearchResult = (phones) => {
     const totalPhone = document.getElementById('total-phone')
     //Load data clear
     totalPhone.textContent = '';
-
-    if (phones.length == 0) {
-        //show no result found
+    if (phones !== 'object') {
+        document.getElementById('search-area').classList.remove('d-none')
     }
 
     phones.slice(0, 20).forEach(phone => {
@@ -41,10 +42,12 @@ const displaySearchResult = (phones) => {
             </div>
         
         </div>`
+        document.getElementById('search-area').classList.add('d-none')
         totalPhone.appendChild(div)
 
     });
 }
+
 const phoneDetails = (id) => {
     const url = ` https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
@@ -53,7 +56,7 @@ const phoneDetails = (id) => {
 }
 
 const setDetails = (info) => {
-    textContent = '';
+
     document.getElementById("phone-details").innerHTML = `
     <div class="card h-100 ">
        <div class="img-info ">
@@ -70,13 +73,14 @@ const setDetails = (info) => {
             <p class="phone-sensors"><span class="fw-bolder">Sensor: </span>${info.mainFeatures.sensors}</p>
             
             <h4 class="text-info"> Others Information</h4>
-            <p class="phone-others"><span class="fw-bolder">WLAN: </span>${info.others.WLAN}</p>
-            <p class="phone-others"><span class="fw-bolder">Bluetooth: </span>${info.others.Bluetooth}</p>
-            <p class="phone-others"><span class="fw-bolder">GPS: </span>${info.others.GPS}</p>
-            <p class="phone-others"><span class="fw-bolder">NFC: </span>${info.others.NFC}</p>
-            <p class="phone-others"><span class="fw-bolder">Radio: </span>${info.others.Radio}</p>
-            <p class="phone-others"><span class="fw-bolder">USB: </span>${info.others.USB}</p>
-            <p class="phone-others"><span class="fw-bolder">WLAN: </span>${info.others.WLAN}</p>
+            
+            <p class="phone-others"><span class="fw-bolder">WLAN: </span>${info.others?.WLAN ? info.others.WLAN : 'error'}</p>
+            <p class="phone-others"><span class="fw-bolder">Bluetooth: </span>${info.others?.Bluetooth ? info.others.Bluetooth : 'error'}</p>
+            <p class="phone-others"><span class="fw-bolder">GPS: </span>${info.others?.GPS ? info.others.GPS : 'error'}</p>
+            <p class="phone-others"><span class="fw-bolder">NFC: </span>${info.others?.NFC ? info.others.NFC : 'error'}</p>
+            <p class="phone-others"><span class="fw-bolder">Radio: </span>${info.others?.Radio ? info.others.Radio : 'error'}</p>
+            <p class="phone-others"><span class="fw-bolder">USB: </span>${info.others?.USB ? info.others.USB : 'error'}</p>
+            
             <div class="text-center">
             <button onclick="phoneMoreInfo('')" id="cal-button" class="calculator-button mx-auto mt-3 mb-3">More Info</button>
             </div>
