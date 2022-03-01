@@ -30,7 +30,7 @@ const displaySearchResult = (phones) => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-        <div class="card h-100">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded" id="card-info">
             <div class="img-info ">
                 <img src="${phone.image}" class="card-img-top w-75  mt-3" alt="...">
             </div>
@@ -77,8 +77,9 @@ const setDetails = (info) => {
             <p class="phone-others"><span class="fw-bolder">Radio: </span>${info.others.Radio}</p>
             <p class="phone-others"><span class="fw-bolder">USB: </span>${info.others.USB}</p>
             <p class="phone-others"><span class="fw-bolder">WLAN: </span>${info.others.WLAN}</p>
-            
+            <div class="text-center">
             <button onclick="phoneMoreInfo('')" id="cal-button" class="calculator-button mx-auto mt-3 mb-3">More Info</button>
+            </div>
 
         
         </div>
